@@ -1,0 +1,54 @@
+<!-- car.hbs -->
+<h1>{{make}} {{model}}</h1>
+<p>Year: {{year}}</p>
+<p>Color: {{color}}</p>
+
+<h2>Features</h2>
+<h3>Interior</h3>
+<ul>
+  <li>Seats: {{features.interior.seats.material}}, Color: {{features.interior.seats.color}}</li>
+  <li>Dashboard: {{features.interior.dashboard.material}}, Color: {{features.interior.dashboard.color}}</li>
+  <li>Audio: System: {{features.interior.audio.system}}, Speakers: {{features.interior.audio.speakers}}, Subwoofer:
+    {{features.interior.audio.subwoofer}}, Bluetooth: {{features.interior.audio.bluetooth}}, USB:
+    {{features.interior.audio.USB}}</li>
+</ul>
+
+<h3>Exterior</h3>
+<ul>
+  <li>Wheels: Size: {{features.exterior.wheels.size}}, Type: {{features.exterior.wheels.type}}, Color:
+    {{features.exterior.wheels.color}}</li>
+  <li>Headlights: Type: {{features.exterior.headlights.type}}, Brightness:
+    {{features.exterior.headlights.brightness}}, Automatic: {{features.exterior.headlights.automatic}}</li>
+  <li>Sunroof: Type: {{features.exterior.sunroof.type}}, Size: {{features.exterior.sunroof.size}}, Automatic:
+    {{features.exterior.sunroof.automatic}}</li>
+</ul>
+
+<h3>Safety</h3>
+<ul>
+  <li>Airbags: Front: {{features.safety.airbags.front}}, Side: {{features.safety.airbags.side}}, Knee:
+    {{features.safety.airbags.knee}}, Rear: {{features.safety.airbags.rear}}</li>
+  <li>Assistance: Blind Spot Monitoring: {{features.safety.assistance.blind_spot_monitoring}}, Rear Cross Traffic
+    Alert: {{features.safety.assistance.rear_cross_traffic_alert}}, Lane Departure Warning:
+    {{features.safety.assistance.lane_departure_warning}}, Adaptive Cruise Control:
+    {{features.safety.assistance.adaptive_cruise_control}}, Collision Warning:
+    {{features.safety.assistance.collision_warning}}</li>
+</ul>
+
+<h2>Engine</h2>
+<p>Type: {{engine.type}}</p>
+<p>Displacement: {{engine.displacement}}</p>
+<p>Horsepower: {{engine.horsepower}}</p>
+<p>Torque: {{engine.torque}}</p>
+<p>Transmission: Type: {{engine.transmission.type}}, Gears: {{engine.transmission.gears}}</p>
+
+<h2>Fuel Economy</h2>
+<p>City: {{fuel_economy.city}}</p>
+<p>Highway: {{fuel_economy.highway}}</p>
+<p>Combined: {{fuel_economy.combined}}</p>
+
+<h2>Price</h2>
+<p>Base: {{price.base}}</p>
+<p>Destination: {{price.destination}}</p>
+<p>Options: Navigation: {{price.options.navigation}}, Moonroof: {{price.options.moonroof}}, Premium Paint:
+  {{price.options.premium_paint}}</p>
+<p>Total: {{price.total}}</p>
