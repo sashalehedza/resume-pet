@@ -1,0 +1,42 @@
+<!-- facebook.hbs -->
+
+<h1>{{name}}</h1>
+
+{{#each users}}
+<div>
+  <h2>User: {{name}}</h2>
+  <p>Gender: {{gender}}</p>
+  <p>Age: {{age}}</p>
+
+  <h3>Friends</h3>
+  {{#each friends}}
+  <div>
+    <p>Friend: {{name}}</p>
+    <p>Gender: {{gender}}</p>
+    <p>Age: {{age}}</p>
+
+    <h4>Mutual Friends</h4>
+    {{#each mutual_friends}}
+    <p>Friend: {{name}}</p>
+    <p>Gender: {{gender}}</p>
+    <p>Age: {{age}}</p>
+    {{/each}}
+  </div>
+  {{/each}}
+
+  <h3>Groups</h3>
+  {{#each groups}}
+  <div>
+    <p>Group: {{name}}</p>
+    <p>Description: {{description}}</p>
+
+    <h4>Members</h4>
+    {{#each members}}
+    <p>Member: {{name}}</p>
+    <p>Gender: {{gender}}</p>
+    <p>Age: {{age}}</p>
+    {{/each}}
+  </div>
+  {{/each}}
+</div>
+{{/each}}
