@@ -1,0 +1,75 @@
+<!-- task21.hbs -->
+<style>
+  .custom-button {
+    color: white;
+  }
+</style>
+
+<div class="card">
+  <div class="card-body">
+    <div class="card mb-2">
+      <div class="card-body">
+        <h1>{{heading.main.title}}</h1>
+        <p>{{heading.main.text}}</p>
+        <button class="btn btn-primary d-block mb-2">{{heading.main.button_text.solid}}</button>
+        <button class="btn btn-outline-primary">{{heading.main.button_text.outline}}</button>
+      </div>
+    </div>
+
+    <div class="card mb-2">
+      <div class="card-body">
+        <h2>{{heading.second.title}}</h2>
+        <p>{{heading.second.text}}</p>
+        <button class="btn btn-secondary d-block mb-2">{{heading.second.button_text.solid}}</button>
+        <button class="btn btn-outline-secondary">{{heading.second.button_text.outline}}</button>
+      </div>
+    </div>
+
+    <div class="card mb-2">
+      <div class="card-body">
+        <h2>{{heading.second.title}}</h2>
+        <h3>{{heading.subblock.title}}</h3>
+        <p>{{heading.subblock.text}}</p>
+        <button class="btn btn-dark d-block mb-2">{{heading.subblock.button_text.solid}}</button>
+        <button class="btn btn-outline-dark">{{heading.subblock.button_text.outline}}</button>
+      </div>
+    </div>
+
+    <div class="card mb-2">
+      <div class="card-body">
+        <h2>{{heading.second.title}}</h2>
+        <h3>{{nested_display.title}}</h3>
+
+        <div class="card">
+          <div class="card-body">
+            <h3>{{nested_display.children_display.title}}</h3>
+            <p>{{nested_display.children_display.text}}</p>
+            <button class="btn btn-primary d-block mb-2">{{nested_display.children_display.button.text}}</button>
+          </div>
+        </div>
+
+        <p>{{nested_display.header_text}}</p>
+        <button class="btn btn-info custom-button">{{nested_display.button.text}}</button>
+      </div>
+    </div>
+
+    <div class="card mb-2">
+      <div class="card-body">
+        <h2>{{heading.second.title}}</h2>
+        <h3>{{paragraph.title}}</h3>
+        <p>{{paragraph.text}}</p>
+        <a class='text-decoration-none' href="{{paragraph.button.url}}" target="_blank">{{paragraph.button.text}}</a>
+        <div class="card">
+          <div class="card-body">
+            <ul>
+              {{#each paragraph.list_name}}
+              <li><a class='text-decoration-none' href="{{this.url}}" target="_blank">{{this.text}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
