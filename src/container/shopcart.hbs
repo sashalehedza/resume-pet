@@ -1,0 +1,94 @@
+<div class="'col-12">
+  <section>
+    <h2>{{header.title}}</h2>
+    <div class="button-block pb-3">
+      <a href="{{header.button.link}}" class="btn btn-outline-secondary">{{header.button.text}}</a>
+    </div>
+  </section>
+
+
+  {{#each goodsBlock}}
+  <div class="card">
+    <div class="'card-body">
+      <div class='row'>
+        <div class="col-2"> <img src="{{this.image}}" alt="{{this.name}}"></div>
+        <div class="col-4 ">
+          <h3>{{this.name}}</h3>
+          <p>{{this.description}}</p>
+        </div>
+        <div class="col-2 d-flex align-items-center">
+          <p>{{this.price.title}}: {{this.price.value}}</p>
+        </div>
+        <div class="col-2 d-flex align-items-center">
+          <p>{{this.amount}}</p>
+        </div>
+        <div class="col-2 d-flex align-items-start flex-column justify-content-around">
+          {{#each this.buttons}}
+          <div> <button class="btn btn-{{#if this.isPrimary}}primary{{/if}}{{#if this.isDanger}}outline-danger{{/if}}">
+              {{this.text}}
+            </button></div>
+          {{/each}}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+
+<section>
+  <h2>{{total.title}}</h2>
+  <div class="total-details">
+    <p>{{total.amount}}</p>
+    <p>{{total.delivery}}</p>
+    <div class="total-buttons">
+      {{#each total.buttons}}
+      <div class="pb-3">
+        <a href="{{this.link}}"
+          class="btn {{#if this.isSuccess}}btn-success{{/if}}{{#if this.isOutline}}btn-outline-success{{/if}}">
+          {{this.text}}
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row">
+    {{#each goodsOtherBlock.cards}}
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header"> <img src="{{this.image}}" class="card-img-top" alt="{{this.title}}"></div>
+        <div class="card-body">
+          <div>
+            <h5 class="card-title">{{this.title}}
+              {{#if this.isHot}}
+              <span class="badge text-bg-success">Hot</span>
+              {{/if}}
+              {{#if this.isNew}}
+              <span class="badge text-bg-warning">New</span>
+              {{/if}}
+            </h5>
+
+          </div>
+          <p class="card-text">{{this.description}}</p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</section>
+
+<div class="text-start bg-dark">
+  <h2 class="text-light">{{subscribe.header}}</h2>
+  <p class="text-light">{{subscribe.description}}</p>
+  <div>
+    {{#each subscribe.buttons}}
+    <div class="pb-3">
+      <a href="{{this.link}}" class="btn btn-primary">{{this.text}}</a>
+    </div>
+    {{/each}}
+  </div>
+</div>
+</div>
