@@ -1,0 +1,239 @@
+<div class="row">
+  <div class="col-8">
+    <form>
+      <div class="form-group">
+        <h2>{{contacts_data.title}}</h2>
+        <div class="contact-buttons">
+          {{#each contacts_data.buttons}}
+          <button class="btn{{#if isPrimary}} btn-warning{{else if isOutline}} btn-outline-warning{{/if}}">
+            {{this.text}}
+          </button>
+          {{/each}}
+        </div>
+        <form>
+          <div class="row">
+            {{#each contacts_data.form.input}}
+            <div class="col-6">
+              <label for="{{@key}}">{{this.label}}</label>
+              <input type="text" class="form-control" id="{{@key}}" name="{{@key}}" placeholder="{{this.placeholder}}">
+              <small>{{this.caption}}</small>
+            </div>
+            {{/each}}
+          </div>
+          <div class="form-switches">
+            {{#each contacts_data.form.switch}}
+            <div class="form-check form-switch">
+              <label class="form-check-label"> {{this.text}}</label>
+              <input class="form-check-input" type="checkbox" {{#if isActive}}checked{{/if}}>
+            </div>
+            {{/each}}
+          </div>
+        </form>
+        </section>
+
+        <section>
+          <h2>{{delivery.title}}</h2>
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                {{#each delivery.select}}
+                <div class="col-6">
+                  <label class="form=label">{{this.label}}</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>{{this.placeholder}}</option>
+                    {{#each this.options}}
+                    <option value="{{this.value}}">{{this.text}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+
+          {{#each delivery.delivery_type}}
+          <div class="form-check">
+            <label class="form-check-label">{{this.type}}</label>
+            <input name="food" type="radio" class="form-check-input">
+          </div>
+          {{/each}}
+
+
+          <div>
+            <h3>{{delivery.payment.title}}</h3>
+            {{#each delivery.payment.list}}
+            <div class="form-check">
+              <label class="form-check-label">{{this.type}}</label>
+              <input name="food" type="radio" class="form-check-input">
+            </div>
+            {{#if this.description}}
+            <span>{{this.description}}</span>
+            {{/if}}
+            {{/each}}
+          </div>
+          <div class="contact-info">
+            <h3>{{delivery.contact.title}}</h3>
+            <form>
+              <div class="row">
+                {{#each delivery.contact}}
+                {{#unless @first}}
+                <div class="col-6">
+                  <label for="{{@key}}">{{this.label}}</label>
+                  <input type="text" class="form-control" id="{{@key}}" name="{{@key}}"
+                    placeholder="{{this.placeholder}}">
+                  <small>{{this.caption}}</small>
+                </div>
+                {{/unless}}
+                {{/each}}
+              </div>
+            </form>
+            <div class="col-12">
+              <label for="comment">{{delivery.coment.label}}</label>
+              <input id="comment" class="form-control" name="comment"
+                placeholder="{{delivery.coment.placeholder}}"></input>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>{{coupon.title}}</h2>
+          <div class="form-selects">
+            {{!-- {{#each coupon.select}}
+            <div class="form-group">
+              <label for="{{@key}}">{{this.label}}</label>
+              <select id="{{@key}}" name="{{@key}}" data-placeholder="{{this.placeholder}}">
+                {{#each this.options}}
+                <option value="{{this.value}}">{{this.text}}</option>
+                {{/each}}
+              </select>
+            </div>
+            {{/each}} --}}
+            <div class="row">
+              {{#each coupon.select}}
+              <div class="col-12">
+                <label class="form=label">{{this.label}}</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>{{this.placeholder}}</option>
+                  {{#each this.options}}
+                  <option value="{{this.value}}">{{this.text}}</option>
+                  {{/each}}
+                </select>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+
+          {{#each coupon.add}}
+          <div class="col-12">
+            <label for="{{@key}}">{{this.label}}</label>
+            <input type="text" class="form-control" id="{{@key}}" name="{{@key}}" placeholder="{{this.placeholder}}">
+            <small>{{this.caption}}</small>
+          </div>
+          {{/each}}
+
+        </section>
+
+        <section>
+          <h2>{{quiz.title}}</h2>
+          <form>
+            <div class="form-group">
+              <label>{{quiz.preference.title}}</label>
+              {{#each quiz.preference.options}}
+              <div class="form-check">
+                <label class="form-check-label">{{this}}</label>
+                <input name="food" type="radio" class="form-check-input">
+              </div>
+              {{/each}}
+            </div>
+
+
+            {{!-- <div class="form-group">
+              <label for="experience">{{quiz.your_expirience.label}}</label>
+              <input type="text" id="experience" name="experience">
+            </div> --}}
+
+            <div class="col-12">
+              <label for="comment">{{quiz.your_expirience.label}}</label>
+              <input id="comment" class="form-control" name="comment"></input>
+            </div>
+
+            <div class="form-group">
+              <div class="col-12">
+                <label class="form-label">{{quiz.purchase_frequency.label}}</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>{{quiz.purchase_frequency.placeholder}}</option>
+                  {{#each quiz.purchase_frequency.options}}
+                  <option value="{{this.value}}">{{this.text}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+            <div class="form-checkboxes">
+              <label>{{quiz.factors.title}}</label>
+              {{#each quiz.factors.options}}
+              <div class="form-checkbox">
+                <label>
+                  <input type="checkbox">
+                  {{this}}
+                </label>
+              </div>
+              {{/each}}
+            </div>
+          </form>
+      </div>
+  </div>
+  </form>
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <h2>Actions</h2>
+        <div class="text-left">
+          {{#each action_block}}
+          <div>
+            <button
+              class="btn{{#if isSuccess}} btn-success{{else if isDanger}} btn-danger{{else if isInfo}} btn-info{{/if}}">
+              {{this.text}}
+            </button>
+          </div>
+
+          {{/each}}
+        </div>
+      </div>
+
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h2>{{total.title}}</h2>
+        <ul class="item-list">
+          {{#each total.item_list}}
+          <li>
+            <span>{{this.name}}</span>
+            <span>{{this.price}}</span>
+          </li>
+          {{/each}}
+        </ul>
+        <ul class="additional-info">
+          {{#each total.additional_info}}
+          <li>
+            <span>{{this.text}}</span>
+            <span>{{this.value}}</span>
+          </li>
+          {{/each}}
+        </ul>
+        <div class="total-price">
+          <span>{{total.total_price.text}}</span>
+          <span>{{total.total_price.value}}</span>
+        </div>
+        <div class="total-buttons">
+          {{#each total.button}}
+          <button class="btn{{#if isPrimary}} btn-primary{{else if isOutline}} btn-outline-primary{{/if}}">
+            {{this.text}}
+          </button>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
