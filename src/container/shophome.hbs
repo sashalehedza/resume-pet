@@ -1,0 +1,85 @@
+<section class="my-5">
+  <h2 class="text-center">{{newsBlock.title}}</h2>
+  <div class="col-12">
+    <div class="row">
+      {{#each newsBlock.cards}}
+      <div class="col-3">
+        <div class="card bg-dark">
+          <div class="card-header">
+            <h3 class="text-light">{{this.title}}</h3>
+            {{#if this.isTop}}
+            <span class="badge text-bg-success">Top News</span>
+            {{/if}}
+            {{#if this.isNew}}
+            <span class="badge text-bg-danger">New</span>
+            {{/if}}
+          </div>
+          <div class="card-body">
+            <p class="text-light">{{this.description}}</p>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<section class="my-5">
+  <h2>{{goodsBlock.title}}</h2>
+  <ul class="nav nav-tabs">
+    {{#each goodsBlock.tabs}}
+    <li class="nav-item">
+      <a class="nav-link {{#if isActive}} active{{/if}}{{#if isDisabled}} disabled{{/if}}" href="#" role="tab"
+        aria-disabled="{{isDisabled}}">
+        {{text}}
+      </a>
+    </li>
+    {{/each}}
+  </ul>
+  <div class="row">
+    {{#each goodsBlock.cards}}
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header"> <img src="{{this.image}}" class="card-img-top" alt="{{this.title}}"></div>
+        <div class="card-body">
+          <div>
+            <h5 class="card-title">{{this.title}}{{#if this.isHot}}
+              <span class="badge text-bg-success">Hot</span>
+              {{/if}}
+              {{#if this.isNew}}
+              <span class="badge text-bg-warning">New</span>
+              {{/if}}
+            </h5>
+
+          </div>
+          <p class="card-text">{{this.description}}</p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</section>
+
+<section>
+  <div class="card bg-dark my-5">
+    <div class="card-body">
+      <h2 class="text-light">{{subscribe.header}}</h2>
+      <p class="text-light">{{subscribe.description}}</p>
+      <div>
+        {{#each subscribe.buttons}}
+        <div class="mb-2"> <a href="{{this.link}}" class="btn btn-primary">{{this.text}}</a></div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card bg-success my-5">
+    <div class="card-body text-center">
+      <h2 class="text-light">{{service.title}}</h2>
+      <p class="text-light">{{service.description}}</p>
+      <a href="{{service.buttons.[0].link}}" class="btn btn-primary">{{service.buttons.[0].text}}</a>
+    </div>
+  </div>
+</section>
