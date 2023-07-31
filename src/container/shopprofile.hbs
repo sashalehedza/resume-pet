@@ -1,0 +1,151 @@
+<section>
+  <div class="purchase-block">
+
+    <h2>{{header}}</h2>
+    <ul class="nav nav-tabs">
+      {{#each purchase.tabs}}
+      <li class="nav-item">
+        <a class="nav-link {{#if isActive}} active{{/if}}{{#if isDisabled}} disabled{{/if}}" href="#" role="tab"
+          aria-disabled="{{isDisabled}}">
+          {{this}}
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+    <div class="d-flex">
+      <input class="me-3" type="text" placeholder="{{purchase.actionBlock.input.placeholder}}">
+      <div class="action-buttons">
+        {{#each purchase.actionBlock.buttons}}
+        <a href="{{this.link}}"
+          class="me-3 btn {{#if this.isSuccess}}btn-success{{/if}}{{#if this.isOutline}}btn-outline-primary{{/if}}{{#if this.isDanger}}btn-danger{{/if}}">
+          {{this.text}}
+        </a>
+        {{/each}}
+      </div>
+    </div>
+
+
+    {{#each purchase.itemList}}
+    <div class="card">
+      <div class="card-body">
+        <div class='row'>
+          <div class="col-4 d-flex flex-column justify-content-around">
+            <div>
+              {{number}}
+            </div>
+            <div>
+              {{status}}
+            </div>
+
+          </div>
+          <div class="col-2 d-flex flex-column justify-content-around">
+            <div>
+              {{amount.title}}
+            </div>
+            <div>
+              {{amount.value}}
+            </div>
+          </div>
+          <div class="col-4 d-flex">
+            {{#each images}}
+            <img src="{{this}}" alt="Image">
+            {{/each}}
+          </div>
+          <div class="col-2 d-flex align-items-center">
+            <a href="{{button.link}}" class="btn {{#if button.isPrimary}}btn-primary{{/if}}">{{button.text}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <div class="card-body">
+      <h2>{{userInfo.title}}</h2>
+      <div class="card">
+        <div class="card-body">
+
+          <h3>{{userInfo.profileData.title}}</h3>
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                {{#each userInfo.profileData.fullName}}
+                <div class="col-4 d-flex flex-column justify-content-around">
+                  <strong>{{@key}}:</strong> {{value}}
+                </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                {{#each userInfo.profileData.otherInfo}}
+                <div class="col-4 d-flex flex-column justify-content-around">
+                  <strong>{{@key}}:</strong> {{value}}
+                </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                {{#each userInfo.buttons}}
+                <div class="col-4">
+                  <a href="{{this.link}}"
+                    class="btn {{#if this.isPrimary}}btn-primary{{/if}}{{#if this.isSecondary}}btn-secondary{{/if}}{{#if this.isDanger}}btn-danger{{/if}}">
+                    {{this.text}}
+                  </a>
+                </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h3>{{userInfo.recipients.title}}</h3>
+              <div class="row">
+                {{#each userInfo.recipients.users}}
+                <div class="col-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <p>{{name}}</p>
+                      <p>{{phone}}</p>
+                      <a href="{{button.link}}" class="btn btn-primary">Редагувати</a>
+                    </div>
+                  </div>
+                </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h3>{{userInfo.contacts.title}}</h3>
+          <div class="row">
+            {{#each userInfo.contacts.contactData}}
+            <div class="col-4">
+              <div class="card">
+                <div class="card-body">
+                  <p>{{title}}</p>
+                  <p>{{value}}</p>
+                  <a href="{{button.link}}"
+                    class="btn {{#if button.isPrimary}}btn-primary{{/if}}{{#if button.isSecondary}}btn-secondary{{/if}}{{#if button.isDanger}}btn-danger{{/if}}">
+                    {{button.text}}
+                  </a>
+                </div>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+</section>
