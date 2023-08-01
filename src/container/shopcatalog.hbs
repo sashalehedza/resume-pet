@@ -1,0 +1,184 @@
+<nav>
+  {{!-- <ul>
+    {{#each breadcrumb}}
+    {{#if this.url}}
+    <li><a href="{{this.url}}">{{this.name}}</a></li>
+    {{else}}
+    <li>{{this.name}}</li>
+    {{/if}}
+    {{/each}}
+  </ul> --}}
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      {{#each breadcrumb}}
+      {{#if this.url}}
+      <li class="breadcrumb-item"><a href="{{this.url}}">{{this.name}}</a></li>
+      {{else}}
+      <li class="breadcrumb-item">{{this.name}}</li>
+      {{/if}}
+      {{/each}}
+    </ol>
+  </nav>
+</nav>
+
+<h1>{{header}}</h1>
+
+<div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        {{#each sortBlock}}
+        <div class="col-3">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>{{this.placeholder}}</option>
+            {{#each this.options}}
+            <option value="{{this.value}}">{{this.text}}</option>
+            {{/each}}
+          </select>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+    <div class="filter">
+      <div class="card">
+        <div class="card-body">
+          {{!-- <div>
+            <h3>{{filterBlock.sellers.title}}</h3>
+            <ul>
+              {{#each filterBlock.sellers.list}}
+              <li>{{this.value}}</li>
+              {{/each}}
+            </ul>
+          </div> --}}
+          <div class="form-checkboxes">
+            <label>{{filterBlock.sellers.title}}</label>
+            {{#each filterBlock.sellers.list}}
+            <div class="form-checkbox">
+              <label>
+                <input type="checkbox">
+                {{this.value}}
+              </label>
+            </div>
+            {{/each}}
+          </div>
+
+          {{!-- <div>
+            <h3>{{filterBlock.brands.title}}</h3>
+            <input type="text" placeholder="{{filterBlock.brands.input.placeholder}}">
+            <ul>
+              {{#each filterBlock.brands.options}}
+              <li>{{this.value}}</li>
+              {{/each}}
+            </ul>
+          </div> --}}
+          <input type="text" placeholder="{{filterBlock.brands.input.placeholder}}">
+          <div class="form-checkboxes">
+            <label>{{filterBlock.brands.title}}</label>
+            {{#each filterBlock.brands.options}}
+            <div class="form-checkbox">
+              <label>
+                <input type="checkbox">
+                {{this.value}}
+              </label>
+            </div>
+            {{/each}}
+          </div>
+
+          <div class="form-group">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="{{filterBlock.price.range.from}}">
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="exampleInputPassword1"
+              placeholder="{{filterBlock.price.range.to}}">
+          </div>
+          <div class="form-checkboxes">
+            {{#each filterBlock.filterList}}
+            <h3>{{this.title}}</h3>
+            {{#each this.options}}
+            <div class="form-checkbox">
+              <label>
+                <input type="checkbox">
+                {{this.value}}
+              </label>
+            </div>
+            {{/each}}
+
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="goods-list">
+      <div class="row">
+        {{#each goodsList}}
+        <div class="col-6">
+          <div class="card">
+            <div class="card-header"> <img src="{{this.img}}" class="card-img-top" alt="{{this.name}}"></div>
+            <div class="card-body">
+              <h5 class="card-title">{{this.title}}
+                {{#if this.isHot}}
+                <span class="badge text-bg-success">Hot</span>
+                {{/if}}
+                {{#if this.isNew}}
+                <span class="badge text-bg-warning">New</span>
+                {{/if}} {{#if this.isFast}}
+                <span class="badge text-bg-warning">Fast</span>
+                {{/if}}
+                {{#if this.isFree}}
+                <span class="badge text-bg-warning">Free</span>
+                {{/if}}
+              </h5>
+
+
+
+              <h2>{{this.name}}</h2>
+              <div class="review">
+                <span>{{this.review.amount}}</span>
+                <p>{{this.review.text}}</p>
+              </div>
+              <p class="price">{{this.price}}</p>
+              <p class="delivery">{{this.delivery}}</p>
+              <div class="buttons">
+                {{#each this.buttons}}
+                <a href="{{this.link}}"
+                  class="btn btn-{{#if this.isPrimary}}primary{{/if}}{{#if this.isSecondary}}secondary{{/if}}">{{this.text}}</a>
+                {{/each}}
+              </div>
+              <ul class="characteristics">
+                {{#each this.characteristics}}
+                <li><strong>{{this.title}}:</strong> {{this.value}}</li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="card bg-success my-5">
+    <div class="card-body text-center">
+      <h2 class="text-light">{{service.title}}</h2>
+      <p class="text-light">{{service.description}}</p>
+      <div class="service-buttons">
+        {{#each service.buttons}}
+        <a href="{{this.link}}" class="btn btn-primary">
+          {{this.text}}
+        </a>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</section>
